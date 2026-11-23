@@ -1,0 +1,1406 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0d090e">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Resolution VIP">
+<link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon.png">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32.png">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<title>Resolution VIP • Santx Sensi</title>
+<style>
+:root{
+  color-scheme:dark;
+  --bg:#0d090e;
+  --panel:#23161e;
+  --panel-2:#171017;
+  --gold:#e8b977;
+  --gold-soft:#ffe1a6;
+  --red:#cc4c60;
+  --rose:#d58f9f;
+  --muted:#b89ea8;
+  --line:#e8b9773b;
+  --line-strong:#e8b97774;
+  --grad:linear-gradient(110deg,#cc4c60,#e8b977,#ffe1a6);
+  --grad-head:linear-gradient(115deg,#6a3f2a,#a98150,#ffe1a6);
+  --shadow:0 12px 30px rgba(0,0,0,.32);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:#09070b;
+  color:#fff4ed;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+}
+button,input{font:inherit}
+button{cursor:pointer}
+button:disabled{cursor:not-allowed}
+[hidden]{display:none!important}
+.app{
+  max-width:520px;
+  margin:auto;
+  min-height:100dvh;
+  padding:24px 16px 42px;
+  background:
+    radial-gradient(ellipse at 100% 0%, rgba(169,64,82,.18), transparent 43%),
+    radial-gradient(circle at 0% 70%, rgba(232,185,119,.06), transparent 26%),
+    var(--bg);
+}
+header{display:flex;align-items:center;gap:10px}
+.logo{
+  display:grid;place-items:center;
+  width:44px;height:44px;
+  border:1px solid #e8b9777d;
+  border-radius:14px;
+  background:linear-gradient(145deg,#4c2b37,#311c25);
+  color:var(--gold-soft);
+  box-shadow:0 0 0 1px rgba(255,255,255,.03) inset;
+}
+.logo-s{
+  font-size:30px;
+  font-weight:1000;
+  letter-spacing:-1.2px;
+  line-height:1;
+  background:linear-gradient(180deg,#fff4d0 0%,#f0c77d 42%,#c99042 100%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  text-shadow:0 0 18px rgba(232,185,119,.22);
+  filter:drop-shadow(0 0 8px rgba(232,185,119,.18));
+}
+.brand{flex:1}
+.brand strong{font-size:19px;letter-spacing:-.5px}
+.brand strong span{color:var(--gold)}
+.brand small{display:block;margin-top:4px;color:var(--muted);font-size:9px;letter-spacing:1px}
+.tag{
+  font-size:9px;font-weight:900;letter-spacing:.8px;
+  color:var(--gold-soft);
+  border:1px solid var(--line);
+  padding:9px;border-radius:10px;
+  background:#1c1118;
+}
+.hero{padding:34px 2px 22px}
+.eyebrow{color:var(--gold);font-size:10px;font-weight:900;letter-spacing:1.45px}
+.hero h1{margin:13px 0;font-size:clamp(38px,10vw,53px);letter-spacing:-1.8px;line-height:1.02}
+.hero h1 span{background:var(--grad);background-clip:text;-webkit-background-clip:text;color:transparent}
+.hero p{color:#c8aeb8;font-size:14px;line-height:1.7;margin:0}
+.hero p b{color:var(--gold-soft)}
+.tabs{
+  display:grid;grid-template-columns:1fr 1fr;gap:6px;
+  padding:5px;background:#1a1118;border:1px solid var(--line);border-radius:16px;
+}
+.tab{
+  border:0;border-radius:11px;background:transparent;color:#baa0a9;
+  padding:14px;font-size:11px;font-weight:900;letter-spacing:1px;
+  transition:.22s ease;
+}
+.tab.active{background:linear-gradient(110deg,#8f3349,#c14b5e);color:white;box-shadow:0 0 0 1px rgba(255,255,255,.04) inset}
+.tab.head{
+  color:var(--gold);
+  text-shadow:0 0 8px rgba(232,185,119,.18);
+}
+.tab.head.active{
+  color:var(--gold-soft);
+  background:linear-gradient(120deg,#3c2a22,#6d4d36 55%, #876342);
+  box-shadow:inset 0 0 0 1px rgba(232,185,119,.42), 0 0 22px rgba(232,185,119,.1);
+  text-shadow:0 0 14px rgba(232,185,119,.38);
+}
+.page{animation:rise .34s both}
+@keyframes rise{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+.heading{
+  display:flex;justify-content:space-between;align-items:center;
+  gap:8px;margin:24px 2px 11px;font-size:11px;font-weight:950;letter-spacing:.6px;
+}
+.heading em{font-style:normal;color:var(--red);margin-right:7px}
+.heading small{color:#b7a0a5;font-size:9px}
+.heading.no-index em{display:none}
+.card{
+  padding:15px;border:1px solid var(--line);border-radius:18px;
+  background:linear-gradient(145deg,#291b24,#171017);
+  box-shadow:var(--shadow);
+}
+.inline-select{
+  display:grid;grid-template-columns:1fr 1fr;gap:8px;
+}
+.inline-chip{
+  border:1px solid var(--line);
+  border-radius:999px;
+  background:#140e15;color:#d2b5bd;
+  padding:12px 14px;min-height:46px;
+  font-size:10px;font-weight:900;letter-spacing:.9px;
+  transition:.2s ease;
+}
+.inline-chip.selected{
+  background:linear-gradient(110deg,#5a313d,#3d252e);
+  border-color:var(--gold);
+  color:var(--gold-soft);
+  box-shadow:0 0 16px rgba(232,185,119,.08);
+}
+.device-note{color:#bfa7af;font-size:10px;margin:12px 3px 0;line-height:1.55}
+.presets{
+  display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;
+}
+.preset{
+  position:relative;min-height:96px;text-align:left;padding:12px;
+  border:1px solid var(--line);border-radius:15px;background:#160e15;color:#fff4ed;
+  transition:.22s ease;box-shadow:0 10px 20px rgba(0,0,0,.18);
+}
+.preset.selected{border-color:var(--gold);background:#472a35;transform:translateY(-1px)}
+.preset.special{border-color:#e8b9778f;background:linear-gradient(135deg,#4c2b37,#291c24)}
+.preset.special:after{content:'EXCLUSIVO';position:absolute;top:9px;right:8px;color:var(--gold-soft);font-size:7px;font-weight:900;border:1px solid #e8b97775;padding:4px;border-radius:999px;background:rgba(0,0,0,.12)}
+.preset .symbol{display:block;color:var(--gold);font-size:17px;height:23px}
+.preset b{display:block;margin-top:6px;font-size:11px}
+.preset small{display:block;color:#c4aab3;font-size:9px;margin-top:5px;line-height:1.3}
+.preset strong{display:block;margin-top:8px;font-size:12px;color:var(--gold-soft)}
+.edit{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:14px}
+.edit label{color:#cbb1b8;font-size:9px;font-weight:900}
+.edit input{width:100%;min-width:0;margin-top:7px;border:1px solid #e8b97753;border-radius:12px;background:#100b11;color:var(--gold-soft);font-size:20px;font-weight:900;text-align:center;padding:11px 3px;outline:0}
+.activation{
+  position:relative;overflow:hidden;padding:20px;border:1px solid #e8b9778a;border-radius:20px;
+  background:radial-gradient(circle at 100% 0%,#e8b97720,transparent 55%),linear-gradient(140deg,#3c2630,#181118);
+  box-shadow:var(--shadow);
+}
+.activation:before{
+  content:'';position:absolute;inset:auto -10% 100% auto;width:180px;height:180px;transform:translateY(60%);
+  background:radial-gradient(circle, rgba(232,185,119,.12), transparent 60%);pointer-events:none;
+}
+.activation-top{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.activation-top small{color:var(--gold);font-size:9px;letter-spacing:1px;font-weight:950}
+.activation-top span{border:1px solid #e8b97765;border-radius:20px;padding:6px 8px;color:var(--gold-soft);font-size:9px;background:rgba(255,255,255,.02)}
+.activation strong{display:block;margin:16px 0 6px;color:var(--gold-soft);font-size:clamp(25px,7vw,33px);letter-spacing:-1px}
+.activation p{color:#c7aeb5;font-size:11px;line-height:1.6;margin:0}
+.primary{display:block;width:100%;min-height:52px;margin-top:18px;border:0;border-radius:14px;background:var(--grad);color:#3b2025;font-size:11px;font-weight:950;letter-spacing:.4px;box-shadow:0 12px 26px rgba(204,76,96,.16)}
+.primary:disabled{opacity:.48}
+.secondary{width:100%;margin-top:10px;padding:13px;border:1px solid var(--line);border-radius:13px;background:#1b1219;color:var(--gold-soft);font-size:10px;font-weight:850}
+.status{margin-top:12px;padding:11px;border-radius:11px;border:1px solid var(--line);color:var(--gold-soft);font-size:11px;line-height:1.55;background:rgba(255,255,255,.02)}
+.head-hero{
+  margin-top:22px;padding:18px;border:1px solid #e8b9777d;border-radius:20px;
+  background:radial-gradient(circle at 100% 0%, rgba(232,185,119,.14), transparent 44%), linear-gradient(140deg,#2d1b24,#181118 70%);
+  box-shadow:var(--shadow);
+}
+.head-hero-top{display:flex;justify-content:space-between;gap:10px;align-items:flex-start}
+.head-hero .shine{
+  display:inline-block;
+  background:var(--grad-head);background-clip:text;-webkit-background-clip:text;color:transparent;
+  text-shadow:0 0 18px rgba(232,185,119,.15);
+  filter:drop-shadow(0 0 10px rgba(232,185,119,.10));
+}
+.head-hero h2{margin:6px 0 7px;font-size:28px;letter-spacing:-.8px}
+.head-hero h2 span{color:var(--gold-soft)}
+.head-hero p{margin:0;color:#c7adb6;font-size:11px;line-height:1.62;max-width:290px}
+.head-badge{font-size:9px;font-weight:900;letter-spacing:.9px;color:var(--gold-soft);border:1px solid #e8b97755;border-radius:999px;padding:8px 10px;background:rgba(232,185,119,.08);white-space:nowrap}
+.head-grid{display:grid;gap:12px}
+.head-card{
+  position:relative;display:grid;grid-template-columns:120px 1fr 116px;gap:14px;align-items:center;
+  padding:16px;border:1px solid var(--line-strong);border-radius:22px;
+  background:linear-gradient(145deg,#2b1b24,#1d1319 62%, #24161f);
+  box-shadow:var(--shadow), inset 0 0 0 1px rgba(255,255,255,.02);
+  overflow:hidden;
+}
+.head-card:before{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(90deg, rgba(232,185,119,.02), transparent 24%, transparent 76%, rgba(232,185,119,.02));
+  pointer-events:none;
+}
+.head-icon{
+  display:grid;place-items:center;width:108px;height:108px;border-radius:28px;
+  border:1px solid #e8b97765;background:linear-gradient(145deg,#402631,#2a1a22);
+  color:var(--gold);font-size:47px;
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.03);
+}
+.head-copy h3{display:flex;align-items:center;gap:10px;margin:0;font-size:21px;letter-spacing:-.6px}
+.vip-pill{
+  display:inline-flex;align-items:center;justify-content:center;
+  min-width:58px;height:34px;padding:0 14px;border-radius:12px;border:1px solid #e8b97788;
+  color:var(--gold-soft);font-size:11px;font-weight:950;letter-spacing:.7px;background:rgba(232,185,119,.05)
+}
+.head-copy p{margin:10px 0 0;color:#d2bac3;font-size:13px;line-height:1.55;max-width:330px}
+.switch-wrap{display:flex;justify-content:flex-end}
+.vip-toggle{
+  position:relative;width:110px;height:54px;border-radius:999px;border:1px solid #8f6571;background:linear-gradient(145deg,#7d5664,#60404c);
+  box-shadow:inset 0 0 0 2px rgba(255,255,255,.02);
+}
+.vip-toggle:before{
+  content:'';position:absolute;left:7px;top:6px;width:40px;height:40px;border-radius:50%;background:#d9c7cf;
+  box-shadow:0 3px 10px rgba(0,0,0,.26);
+}
+.vip-toggle:after{
+  content:'LOCK';position:absolute;right:13px;top:50%;transform:translateY(-50%);
+  color:#eedbe0;font-size:10px;font-weight:900;letter-spacing:.8px;opacity:.74;
+}
+.head-card.selected .vip-toggle{background:linear-gradient(145deg,#c14b5e,#d98f6f 55%,#e8b977);border-color:#efc582;box-shadow:0 0 20px rgba(232,185,119,.14)}
+.head-card.selected .vip-toggle:before{left:60px;background:#fff1d8}
+.head-card.selected .vip-toggle:after{content:'ON';left:15px;right:auto;color:#5d3022;opacity:1}
+.unlock{
+  padding:19px;border:1px solid #e8b97784;border-radius:19px;background:linear-gradient(145deg,#35222b,#181117);
+  box-shadow:var(--shadow);
+}
+.unlock-title{display:flex;justify-content:space-between;gap:8px;align-items:center;margin-bottom:12px}
+.unlock-title b{font-size:14px;color:var(--gold-soft);letter-spacing:.4px}
+.unlock-title span{font-size:9px;font-weight:900;color:var(--gold);letter-spacing:.9px}
+.unlock p{color:#c1a7b0;font-size:11px;line-height:1.6;margin:0 0 13px}
+.unlock input{width:100%;padding:16px 12px;border:1px solid #e8b9777c;border-radius:14px;background:#100c11;color:var(--gold-soft);outline:0;text-align:center;font-size:12px;letter-spacing:.6px}
+.unlock input::placeholder{color:#8b747d}
+.unlocked-box{animation:unlock .72s cubic-bezier(.2,.9,.2,1) both}
+@keyframes unlock{from{opacity:0;transform:translateY(24px) scale(.96);filter:blur(6px)}to{opacity:1;transform:translateY(0) scale(1);filter:blur(0)}}
+.plans{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+.plan{padding:14px 11px;border:1px solid var(--line);border-radius:15px;background:#24171f}
+.plan.featured{border-color:var(--gold);background:linear-gradient(135deg,#53323b,#2d2024)}
+.plan small{display:block;color:#d0b6bd;font-size:9px}
+.plan b{display:block;margin:8px 0;color:var(--gold-soft);font-size:20px}
+.plan strong{font-size:11px}
+.plan button{width:100%;margin-top:13px;border:1px solid #e8b97770;border-radius:10px;background:#49303a;color:var(--gold-soft);padding:11px 5px;font-size:9px;font-weight:900}
+.plan.featured button{background:var(--grad);border:0;color:#32191e}
+.foot{margin-top:30px;text-align:center;border-top:1px solid var(--line);padding-top:18px;color:#ac929d;font-size:9px;letter-spacing:1px}
+.overlay{position:fixed;inset:0;z-index:10;display:grid;place-items:center;background:#070508f2;backdrop-filter:blur(3px)}
+.loader{
+  width:min(86vw,360px);padding:26px 20px;border-radius:26px;text-align:center;
+  border:1px solid #e8b97772;background:linear-gradient(145deg,#2d1d26,#151017);
+  box-shadow:0 30px 70px rgba(0,0,0,.44), 0 0 60px rgba(232,185,119,.06);
+}
+.loader .ring{display:grid;place-items:center;margin:0 auto 22px;width:88px;height:88px;border:2px solid var(--gold);border-radius:50%;box-shadow:0 0 26px rgba(232,185,119,.24);color:var(--gold-soft);font-size:30px;animation:pulse 1.5s infinite}
+@keyframes pulse{50%{box-shadow:0 0 44px rgba(232,185,119,.44);transform:scale(1.03)}}
+.loader h2{font-size:21px;margin:0 0 8px}
+.loader p{color:#bea8af;font-size:11px;line-height:1.55;margin:0}
+.bar{height:7px;border-radius:999px;overflow:hidden;background:#503441;margin-top:20px}
+.fill{height:100%;width:0;background:var(--grad);transition:width .12s}
+.loader button{margin-top:22px}
+.loader button[hidden]{display:none}
+.fineprint{font-size:10px;color:#9e8790;line-height:1.5;margin-top:10px}
+@media (max-width:460px){
+  .head-card{grid-template-columns:92px 1fr 92px;gap:12px;padding:14px}
+  .head-icon{width:84px;height:84px;border-radius:24px;font-size:38px}
+  .head-copy h3{font-size:17px}
+  .head-copy p{font-size:11px}
+  .vip-pill{min-width:50px;height:30px;padding:0 11px;font-size:10px}
+  .vip-toggle{width:86px;height:46px}
+  .vip-toggle:before{width:32px;height:32px;left:6px;top:6px}
+  .head-card.selected .vip-toggle:before{left:47px}
+  .head-grid{gap:10px}
+}
+
+/* V12: campos de pixels sem controles de incremento nem alteração de cursor. */
+.edit input{
+  appearance:textfield;
+  -moz-appearance:textfield;
+  -webkit-appearance:none;
+  touch-action:manipulation;
+  font-variant-numeric:tabular-nums;
+  line-height:1.3;
+  caret-color:var(--gold-soft);
+  transition:border-color .2s,box-shadow .2s;
+}
+.edit input:focus{
+  border-color:var(--gold);
+  box-shadow:0 0 0 3px rgba(232,185,119,.12);
+}
+.edit input.invalid{border-color:#cc4c60;box-shadow:0 0 0 2px rgba(204,76,96,.12)}
+.field-warning{margin:11px 0 0;color:#ffb6be;font-size:10px;line-height:1.6}
+.head-card{transition:border-color .24s,box-shadow .24s,transform .24s}
+.head-card.selected{
+  border-color:var(--gold);
+  box-shadow:0 8px 28px rgba(0,0,0,.28),0 0 18px rgba(232,185,119,.12);
+}
+.head-card.locked .vip-toggle{opacity:.86}
+.head-card:not(.locked):active{transform:scale(.987)}
+.unlock-flash{animation:unlockReveal .85s cubic-bezier(.18,.85,.28,1) both}
+@keyframes unlockReveal{
+  0%{opacity:0;transform:translateY(26px) scale(.96);filter:blur(8px)}
+  60%{opacity:1;filter:blur(0)}
+  100%{transform:translateY(0) scale(1)}
+}
+.overlay .ring.unlock-ring{animation:unlockHalo 1.25s ease-in-out both}
+@keyframes unlockHalo{
+  0%{transform:rotate(-90deg) scale(.74);opacity:.4;box-shadow:0 0 2px rgba(232,185,119,.07)}
+  55%{transform:rotate(0deg) scale(1.14);opacity:1;box-shadow:0 0 42px rgba(232,185,119,.42)}
+  100%{transform:rotate(0deg) scale(1);box-shadow:0 0 32px rgba(232,185,119,.3)}
+}
+@media(max-width:390px){
+  .head-card{grid-template-columns:68px 1fr 58px;gap:9px;padding:11px}
+  .head-icon{width:63px;height:63px;border-radius:18px;font-size:29px}
+  .head-copy h3{font-size:14px;gap:5px;flex-wrap:wrap}
+  .head-copy p{font-size:10px;line-height:1.45}
+  .vip-pill{height:25px;min-width:44px;font-size:9px;padding:0 8px}
+  .vip-toggle{width:54px;height:33px}
+  .vip-toggle:before{width:23px;height:23px;left:4px;top:4px}
+  .vip-toggle:after{display:none}
+  .head-card.selected .vip-toggle:before{left:25px}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}
+}
+
+/* V13 — os quatro presets têm um único estado selecionado. */
+.preset.special:not(.selected){
+  border-color:#8b6b4a;
+  background:linear-gradient(135deg,#211a1b,#24191e);
+  box-shadow:inset 0 0 0 1px #e8b9770b;
+}
+.preset.special:not(.selected) strong{color:#dfbf94}
+.preset.selected{
+  border:1px solid #ffe1a6;
+  background:linear-gradient(135deg,#50313b,#3a2930);
+  box-shadow:inset 0 0 0 1px #ffe1a62c,0 0 15px #e8b97724;
+}
+.preset.selected.special{background:linear-gradient(135deg,#51313b,#3c2d2e)}
+.preset.special:after{border-color:#d5b27580;color:#e2bd8a}
+.preset:focus-visible{outline:2px solid var(--gold-soft);outline-offset:3px}
+/* Fundo alternado com brilho dourado ao entrar na aba HEAD. */
+body.head-mode{background:#0b0908}
+body.head-mode .app{
+  background:
+    radial-gradient(ellipse at 100% 4%,#b78c3b25,transparent 49%),
+    radial-gradient(ellipse at 2% 82%,#97672b12,transparent 57%),
+    linear-gradient(180deg,#1b1411 0%,#120e11 38%,#0e0b0c 100%);
+  transition:background .35s ease;
+}
+body.head-mode .head-hero{
+  border-color:#e8b977a1;
+  background:radial-gradient(circle at 95% 0%,#e8b97720,transparent 60%),linear-gradient(120deg,#33241f,#191316);
+}
+body.head-mode .head-card{
+  border-color:#d5af786b;
+  background:linear-gradient(115deg,#30211f,#23181b);
+  box-shadow:0 9px 30px #0005;
+}
+body.head-mode .heading small{color:#d0af82}
+/* Seis ícones SVG fiéis ao HeadTricking original. */
+.icon-definitions{position:absolute;width:0;height:0;overflow:hidden;pointer-events:none}
+.head-card{
+  grid-template-columns:60px minmax(0,1fr) 54px;
+  padding:14px;
+  gap:12px;
+  min-height:107px;
+  border-radius:17px;
+}
+.head-icon{
+  width:58px;height:58px;
+  border-radius:15px;
+  font-size:initial;
+  flex:none;
+}
+.head-icon svg{width:32px;height:32px;fill:none;stroke:currentColor;stroke-width:1.65;stroke-linecap:round;stroke-linejoin:round}
+.head-copy h3{font-size:15px;gap:7px;flex-wrap:wrap;line-height:1.25}
+.head-copy p{font-size:12.5px;line-height:1.52;margin:7px 0 0;max-width:none}
+.vip-pill{height:24px;min-width:40px;padding:0 8px;border-radius:7px;font-size:9px}
+.vip-toggle{width:51px;height:31px;flex:none}
+.vip-toggle:before{left:4px;top:4px;width:21px;height:21px;transition:left .28s ease,background .28s ease}
+.vip-toggle:after{display:none}
+.head-card.selected .vip-toggle:before{left:25px}
+.head-grid{gap:10px}
+.head-card.locked{cursor:default}
+@media(max-width:390px){
+  .head-card{grid-template-columns:52px minmax(0,1fr) 48px;gap:9px;padding:12px;min-height:106px}
+  .head-icon{width:51px;height:51px;border-radius:13px}
+  .head-icon svg{width:28px;height:28px}
+  .head-copy h3{font-size:13px;gap:5px;flex-wrap:wrap}
+  .head-copy p{font-size:12px;line-height:1.5;max-width:none}
+  .vip-pill{min-width:35px;height:22px;padding:0 6px;font-size:9px}
+  .vip-toggle{width:46px;height:28px}
+  .vip-toggle:before{width:18px;height:18px;top:4px;left:4px}
+  .head-card.selected .vip-toggle:before{left:23px}
+}
+/* Botões de ação separados: referência original. */
+.hero-action{
+  position:relative;
+  isolation:isolate;
+  display:flex;align-items:center;justify-content:center;gap:13px;
+  padding:16px 17px;margin-top:16px;min-height:66px;
+  border-radius:18px;
+  background:var(--grad);
+  box-shadow:0 8px 27px #cc4c6026;
+  color:#361b20;
+  font-size:clamp(11px,3vw,15px);
+  font-weight:950;letter-spacing:1.25px;
+  transition:transform .18s ease,filter .18s ease;
+}
+.hero-action:hover:not(:disabled){filter:brightness(1.055)}
+.hero-action:active:not(:disabled){transform:scale(.985)}
+.action-icon{width:24px;height:24px;flex:none;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.hero-reset{
+  width:100%;min-height:56px;margin-top:11px;
+  font-size:clamp(10px,3vw,13px);font-weight:950;letter-spacing:1.3px;
+  color:#ead0d0;border:1px solid #e8b97746;border-radius:17px;background:#291b22;
+  transition:background .2s,transform .2s;
+}
+.hero-reset:active{transform:scale(.99)}
+.head-actions{animation:unlockReveal .8s cubic-bezier(.15,.9,.3,1) both}
+.loader .ring svg{width:42px;height:42px;stroke:currentColor;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+/* Botão de comunidade idêntico ao estilo do painel original. */
+.foot{display:flex;justify-content:center;margin-top:32px;padding-top:23px;border-top:1px solid #e8b97735}
+.community-link{
+  min-height:51px;padding:12px 21px;
+  display:inline-flex;align-items:center;justify-content:center;gap:12px;
+  background:linear-gradient(135deg,#291b22,#20161c);
+  border:1px solid #e8b97778;border-radius:18px;
+  text-decoration:none;color:#e7c49c;
+  font-size:12px;font-weight:950;letter-spacing:2.0px;
+  box-shadow:inset 0 0 0 1px #e8b97712;
+  transition:transform .2s,border-color .2s;
+}
+.community-link:hover{border-color:#e8b977;transform:translateY(-1px)}
+.community-crown{width:25px;height:25px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+
+
+/* =================================================
+   V14 — Ajustes finos de proporção e seleção de plano
+   ================================================= */
+/* Centraliza o bloco nome + descrição e eleva o texto
+   sem deslocar os ícones e os switches. */
+.head-copy{
+  text-align:left;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-self:center;
+  transform:translateY(-5px);
+}
+.head-card{text-align:left;}
+.head-copy h3{margin:0;}
+.head-copy p{margin:3px 0 0;}
+/* Rodapé mais compacto, mantendo a identidade original. */
+.community-link{
+  min-height:41px;
+  padding:9px 14px;
+  gap:8px;
+  border-radius:14px;
+  font-size:10px;
+  letter-spacing:1.3px;
+}
+.community-crown{width:19px;height:19px;}
+/* Os planos começam ambos NEUTROS. O Permanente tem
+   uma discreta assinatura VIP, mas não parece escolhido. */
+.plan,
+.plan.permanent{
+  position:relative;
+  border:1px solid var(--line);
+  background:linear-gradient(145deg,#24171f,#1d141b);
+  box-shadow:none;
+  transition:border-color .2s,background .2s,box-shadow .2s,transform .2s;
+  cursor:pointer;
+}
+.plan.permanent{
+  background:linear-gradient(145deg,#29201f,#241a21);
+}
+.plan.permanent strong{color:#e4caab}
+.plan.permanent .plan-accent{
+  position:absolute;
+  right:10px;
+  top:10px;
+  color:var(--gold);
+  opacity:.8;
+  font-size:9px;
+  font-weight:900;
+  letter-spacing:.7px;
+}
+.plan:not(.is-selected) button{
+  background:#49303a;
+  border:1px solid #e8b97770;
+  color:var(--gold-soft);
+}
+.plan.is-selected{
+  border-color:var(--gold-soft);
+  background:linear-gradient(140deg,#53323b,#38272d);
+  box-shadow:inset 0 0 0 1px #ffe1a629, 0 0 20px #e8b97716;
+  transform:translateY(-1px);
+}
+.plan.is-selected button{
+  border:0;
+  background:var(--grad);
+  color:#32191e;
+}
+.plan:focus-visible{
+  outline:2px solid var(--gold-soft);
+  outline-offset:3px;
+}
+.plan:active{transform:scale(.985)}
+@media(max-width:390px){
+  .head-copy{transform:translateY(-4px)}
+  .community-link{padding:8px 12px;gap:7px;font-size:9.5px}
+  .community-crown{width:18px;height:18px}
+}
+
+/* V15 — edição dos perfis por plataforma e acabamento compacto. */
+.online-pill{
+  display:inline-flex;align-items:center;justify-content:center;gap:7px;
+  color:#b4f4c4;border:1px solid #68bc856d;background:#112219;
+  border-radius:999px;padding:8px 11px;font-size:9px;letter-spacing:.65px;
+}
+.online-dot{
+  flex:none;width:7px;height:7px;border-radius:50%;background:#65e397;
+  box-shadow:0 0 0 3px #65e39716,0 0 10px #65e3979e;
+  animation:onlinePulse 2s ease-in-out infinite;
+}
+.online-pill.is-offline{color:#d8b3bb;background:#221719;border-color:#bd77816b}
+.online-pill.is-offline .online-dot{background:#c97c86;box-shadow:none;animation:none}
+@keyframes onlinePulse{50%{box-shadow:0 0 0 4px #65e39718,0 0 15px #65e397a9}}
+.presets-compact{
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;
+}
+.presets-compact .preset{
+  display:flex;flex-direction:column;justify-content:space-between;
+  min-width:0;min-height:76px;padding:15px 7px 13px;
+  text-align:center;border-radius:13px;
+}
+.presets-compact .preset b{font-size:12px;margin:0;letter-spacing:.6px}
+.presets-compact .preset .preset-value{font-size:clamp(9px,2.7vw,12px);margin-top:13px;white-space:nowrap}
+.presets-compact .preset:disabled{opacity:.48}
+.preset-caption{margin:12px 2px 0;color:#a9959c;font-size:10px;line-height:1.5}
+/* Dimensões principais maiores, com cursor normal e teclado numérico. */
+.edit{margin-top:17px;gap:11px}
+.edit label{font-size:10px;letter-spacing:.6px}
+.edit input{font-size:clamp(23px,7.2vw,31px);padding:17px 4px;border-radius:14px;letter-spacing:.3px}
+.resolution-activation{padding:15px 16px;border-radius:17px}
+.resolution-activation .activation-top small{font-size:9px;letter-spacing:.5px}
+.resolution-activation strong{font-size:26px;margin:10px 0 4px}
+.resolution-activation p{font-size:10px;line-height:1.45}
+#save-res{margin-top:12px}
+/* Efeito de travada visual leve: pausa a interface sem alterar o aparelho. */
+body.is-freezing{overflow:hidden}
+.freeze-overlay{
+  position:fixed;inset:0;z-index:11;pointer-events:none;
+  background:#000;opacity:0;transition:opacity .08s linear;
+}
+.freeze-overlay.active{opacity:.22}
+.freeze-overlay.flash{opacity:.34}
+@media(max-width:350px){
+  .presets-compact{gap:5px}
+  .presets-compact .preset{padding:13px 4px 12px;min-height:71px}
+  .presets-compact .preset .preset-value{font-size:9px}
+  .online-pill{padding:7px 8px;gap:5px}
+}
+@media(prefers-reduced-motion:reduce){.app.is-glitching,.online-dot{animation:none!important}}
+
+
+/* V17 — marca premium e transição suave na troca do aparelho. */
+.brand-aim{
+  width:29px;height:29px;display:block;
+  color:#efc67e;fill:none;stroke:currentColor;stroke-width:1.8;
+  stroke-linecap:round;stroke-linejoin:round;
+  filter:drop-shadow(0 0 8px rgba(232,185,119,.32));
+}
+#device-card,#resolution-card{will-change:box-shadow}
+.inline-chip{position:relative;overflow:hidden;will-change:transform}
+.inline-chip.selected{box-shadow:0 0 0 1px #e8b97726,0 0 18px #e8b97728}
+.inline-chip.selected:after{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(105deg,transparent 18%,#ffe1a61e 48%,transparent 73%);
+  transform:translateX(-140%);animation:deviceShimmer .75s ease-out both;
+  pointer-events:none;
+}
+.device-pulse{animation:devicePop .38s cubic-bezier(.2,.85,.26,1.15) both}
+.device-changing{animation:deviceBorder .55s ease-out both}
+.preset-swapping{animation:presetSwap .43s ease-out both;animation-delay:calc(var(--order)*40ms)}
+.preset-heading{
+  display:flex;justify-content:space-between;align-items:center;
+  gap:8px;margin:16px 1px 10px;font-size:10px;font-weight:950;letter-spacing:.45px;
+}
+.preset-heading small{font-size:9px;color:#bda7a6}
+.preset-caption{margin:0 2px 2px;font-size:11px;line-height:1.6}
+.edit{margin-top:13px}
+.presets-compact{margin-top:0}
+@keyframes devicePop{0%{transform:scale(.95)}55%{transform:scale(1.045)}100%{transform:scale(1)}}
+@keyframes deviceShimmer{to{transform:translateX(140%)}}
+@keyframes deviceBorder{0%{border-color:#e8b977aa;box-shadow:0 0 22px #e8b97722}100%{border-color:var(--line);box-shadow:var(--shadow)}}
+@keyframes presetSwap{0%{opacity:.3;transform:translateY(7px) scale(.98)}100%{opacity:1;transform:translateY(0) scale(1)}}
+@media(prefers-reduced-motion:reduce){
+  .device-pulse,.device-changing,.preset-swapping,.inline-chip.selected:after{animation:none!important}
+}
+
+/* V21 — transições das opções HEAD (sem recriar os cards no clique) */
+.head-card{transition:background .32s ease,border-color .32s ease,box-shadow .36s ease,transform .3s ease!important;will-change:transform}
+.head-card .vip-toggle{transition:background .34s ease,border-color .32s ease,box-shadow .32s ease!important}
+.head-card .vip-toggle:before{transition:left .32s cubic-bezier(.18,.88,.27,1.2),background .27s ease,transform .28s ease!important}
+.head-card .head-icon{transition:border-color .3s,box-shadow .34s,transform .32s}
+.head-card.selected .head-icon{border-color:#efc781;box-shadow:0 0 19px #e8b97729}
+.head-card.switch-pop{animation:v21SwitchPop .4s cubic-bezier(.18,.88,.23,1) both}
+.head-card.clearing{animation:v21Clear .39s ease both}
+.head-card.clear-finish .vip-toggle:before{transform:scale(.92)}
+@keyframes v21SwitchPop{0%{transform:scale(1)}40%{transform:scale(1.022)}100%{transform:scale(1)}}
+@keyframes v21Clear{0%{transform:translateX(0);filter:brightness(1.15)}34%{transform:translateX(-5px);filter:brightness(1)}72%{transform:translateX(2px)}100%{transform:translateX(0)}}
+.head-warning{margin-top:13px;border:1px solid #aa4e5e;background:linear-gradient(145deg,#261216,#1b0d11);color:#ffccd4;padding:16px 15px;border-radius:15px;font-size:12px;line-height:1.6;animation:v21Warning .3s both}
+.head-warning:empty{display:none}
+@keyframes v21Warning{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+/* V21 — modal de injeção e tela de conclusão no estilo HeadTricking original */
+.head-injection-overlay{position:fixed;inset:0;z-index:101;display:flex;justify-content:center;align-items:center;overflow-y:auto;padding:18px;background:#09070bf5;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.head-injection-card{width:min(100%,390px);padding:24px 23px 22px;border:1px solid #b88a61b0;border-radius:22px;background:linear-gradient(155deg,#342028,#1e141c 64%,#1a1319);box-shadow:0 25px 75px #0009,0 0 44px #cc4c6010;animation:v21CardIn .33s cubic-bezier(.2,.8,.2,1) both}
+@keyframes v21CardIn{from{opacity:0;transform:translateY(14px) scale(.97)}to{opacity:1;transform:translateY(0) scale(1)}}
+.injection-topline{display:flex;align-items:center;justify-content:space-between;gap:10px;color:#d9b4b8;font-size:10px;font-weight:900;letter-spacing:1.45px}
+.injection-topline span{display:flex;align-items:center;gap:8px}
+.injection-topline i{width:7px;height:7px;border-radius:50%;background:#d4a56d;box-shadow:0 0 10px #e8b97780;animation:v21Dot 1.2s ease-in-out infinite}
+.injection-topline b{color:#eec48e;font-size:11px;letter-spacing:1px}
+@keyframes v21Dot{50%{opacity:.45;box-shadow:0 0 16px #e8b977}}
+.injection-emblem{display:grid;place-items:center;width:75px;height:75px;margin:20px auto 16px;border:1px solid #e8b9778e;border-radius:17px;background:linear-gradient(150deg,#4e2b37,#2d1b24);color:#e9b974;box-shadow:0 0 0 6px #e8b9770b,0 0 25px #e8b97716;animation:v21Emblem 2s ease-in-out infinite}
+.injection-emblem svg{width:37px;height:37px;stroke:currentColor;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+@keyframes v21Emblem{50%{box-shadow:0 0 0 7px #e8b97712,0 0 30px #e8b97735}}
+.injection-brand,.success-brand{text-align:center;font-size:clamp(22px,6vw,27px);letter-spacing:-.5px;color:#fff5ef;margin:0 0 22px;font-weight:950}
+.injection-brand span,.success-brand span{color:#e8b977}
+.injection-stage{border:1px solid #755144;border-radius:15px;background:linear-gradient(130deg,#28191f,#20161d);padding:15px 15px 17px;min-height:116px;margin-bottom:24px}
+.injection-stage.changing .injection-stage-body{animation:v21Stage .35s both}
+@keyframes v21Stage{from{opacity:.35;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+.injection-stage-top{display:flex;align-items:center;justify-content:space-between;color:#d9b0b2;font-weight:950;font-size:10px;letter-spacing:1.4px;gap:8px}
+.moving-bars{display:flex;align-items:center;gap:3px;height:19px}
+.moving-bars i{width:4px;height:14px;border-radius:5px;background:#d89c77;animation:v21Bars .65s ease-in-out infinite alternate}
+.moving-bars i:nth-child(2){animation-delay:.22s;height:18px}
+.moving-bars i:nth-child(3){animation-delay:.44s;height:12px}
+@keyframes v21Bars{to{height:5px;opacity:.55}}
+.injection-stage-body{display:flex;align-items:center;gap:12px;margin-top:16px;min-width:0}
+.injection-stage-icon{display:grid;place-items:center;width:48px;height:48px;border:1px solid #e8b97780;border-radius:13px;color:#e9b977;flex:none}
+.injection-stage-icon svg{width:28px;height:28px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.injection-stage-body b{display:block;color:#f5dfcf;font-size:14px;line-height:1.3}
+.injection-stage-body p{margin:6px 0 0;font-size:11px;color:#bea6ac;line-height:1.4}
+.injection-progress-meta{display:flex;justify-content:space-between;align-items:center;gap:10px;color:#e3beb6;font-size:11px;font-weight:950;letter-spacing:.7px}
+.injection-progress-meta b{color:#f4c58c;font-size:19px;letter-spacing:0;font-variant-numeric:tabular-nums}
+.injection-track{height:7px;background:#50313f;border-radius:30px;overflow:hidden;margin:14px 0 15px}
+.injection-track div{height:100%;width:0;background:linear-gradient(90deg,#cc4c60,#e8b977);border-radius:30px;box-shadow:0 0 14px #e8b97745}
+.injection-segments{display:flex;gap:6px}
+.injection-segment{height:4px;flex:1;background:#543341;border-radius:99px;overflow:hidden}
+.injection-segment i{display:block;height:100%;width:0;background:#f0bd82;box-shadow:0 0 8px #e8b97770}
+.injection-progress-bottom{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:12px;font-size:11px;color:#b69ba5}
+.injection-progress-bottom b{color:#d8ad95;font-size:10px;letter-spacing:.7px}
+.injection-footer{border-top:1px solid #e8b97728;margin-top:25px;padding-top:19px;color:#927e88;font-size:10px;font-weight:950;letter-spacing:1.3px;text-align:center}
+#head-injection-success{text-align:center;padding:1px 0 0;animation:v21CardIn .45s both}
+#head-injection-success .success-brand{margin:2px 0 19px}
+.success-check{width:57px;height:57px;display:grid;place-items:center;margin:0 auto 22px;border:1px solid #e8b9777b;border-radius:50%;background:linear-gradient(145deg,#614039,#403034);color:#ffe1a6;animation:v21Success .5s cubic-bezier(.2,.95,.3,1.3) both}
+.success-check svg{width:35px;height:35px;fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:3}
+@keyframes v21Success{from{opacity:0;transform:scale(.5) rotate(-15deg)}to{opacity:1;transform:scale(1) rotate(0)}}
+#head-injection-success h3{color:#ffe0aa;font-size:17px;margin:0 0 15px;font-weight:950}
+#head-injection-success p{color:#c8b1b7;font-size:12px;line-height:1.5;margin:0 auto 23px;max-width:290px}
+#head-injection-success .primary{min-height:58px;margin:0;font-size:13px;border-radius:14px}
+body.head-injection-running{overflow:hidden}
+@media(max-width:390px){.head-injection-card{padding:22px 17px}.injection-stage{padding:14px 12px}.injection-stage-top{font-size:9px;letter-spacing:.9px}}
+@media(prefers-reduced-motion:reduce){.head-card.switch-pop,.head-card.clearing,.injection-stage.changing .injection-stage-body{animation:none!important}}
+
+</style>
+</head>
+<body>
+  <svg class="icon-definitions" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+    <symbol id="i-aim" viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="7"/><circle cx="12" cy="12" r="2"/>
+      <path d="M12 1v5M12 18v5M1 12h5M18 12h5"/>
+    </symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24">
+      <rect x="5" y="2" width="14" height="20" rx="3"/><path d="M10 18h4"/>
+    </symbol>
+    <symbol id="i-diamond" viewBox="0 0 24 24">
+      <path d="M12 2 22 12 12 22 2 12Z"/><path d="M12 6 18 12 12 18 6 12Z"/>
+    </symbol>
+    <symbol id="i-adjust" viewBox="0 0 24 24">
+      <path d="M5 3v5M5 12v9M12 3v10M12 17v4M19 3v3M19 10v11"/>
+      <rect x="2.5" y="8" width="5" height="4" rx="1"/>
+      <rect x="9.5" y="13" width="5" height="4" rx="1"/>
+      <rect x="16.5" y="6" width="5" height="4" rx="1"/>
+    </symbol>
+    <symbol id="i-target" viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/>
+      <circle cx="12" cy="12" r="1"/><path d="M12 1v3M12 20v3M1 12h3M20 12h3"/>
+    </symbol>
+    <symbol id="i-bolt" viewBox="0 0 24 24">
+      <path d="M13 2 5 13h7l-1 9 8-12h-7Z"/>
+    </symbol>
+    <symbol id="i-spark" viewBox="0 0 24 24">
+      <path d="M12 2 14.5 9.5 22 12 14.5 14.5 12 22 9.5 14.5 2 12 9.5 9.5Z"/>
+    </symbol>
+    <symbol id="i-power" viewBox="0 0 24 24">
+      <path d="M12 2v10M6.1 5.8a9 9 0 1 0 11.8 0"/>
+    </symbol>
+    <symbol id="i-device-download" viewBox="0 0 24 24">
+      <rect x="4" y="2" width="16" height="20" rx="3"/>
+      <path d="M12 6v9m-3-3 3 3 3-3M10 19h4"/>
+    </symbol>
+    <symbol id="i-check" viewBox="0 0 24 24">
+      <path d="m4 12 5 5L20 6"/>
+    </symbol>
+    <symbol id="i-crown" viewBox="0 0 24 24">
+      <path d="M2 7 6.5 11 12 4 17.5 11 22 7 19.5 19H4.5L2 7Z"/>
+      <path d="M5.5 22h13"/>
+    </symbol>
+  </svg>
+<main class="app">
+  <header>
+    <div class="logo"><svg class="brand-aim" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-aim"/></svg></div>
+    <div class="brand">
+      <strong>SANTX <span>SENSI</span></strong>
+      <small>RESOLUTION VIP • FREE FIRE</small>
+    </div>
+    <div class="tag online-pill" id="online-pill" title="Conectividade do navegador"><span class="online-dot"></span><span id="online-text">ONLINE</span></div>
+  </header>
+
+  <div class="hero">
+    <div class="eyebrow">SANTX SENSI APRESENTA</div>
+    <h1>RESOLUTION<br><span>VIP.</span></h1>
+    <p><b>O APLICATIVO PERFEITO.</b> Sua resolução personalizada e um módulo HEAD premium liberado por key.</p>
+  </div>
+
+  <nav class="tabs">
+    <button class="tab active" data-tab="res">RESOLUÇÃO</button>
+    <button class="tab head" data-tab="head">HEAD</button>
+  </nav>
+
+  <section id="page-res" class="page">
+    <div class="heading no-index"><div><em>01</em> SEU DISPOSITIVO</div></div>
+    <div class="card" id="device-card">
+      <div class="inline-select">
+        <button class="inline-chip" data-device="iphone">IPHONE</button>
+        <button class="inline-chip" data-device="android">ANDROID</button>
+      </div>
+      <p class="device-note" id="device-note">Escolha seu dispositivo para continuar.</p>
+    </div>
+
+    <div class="heading"><div><em>01</em> SUA RESOLUÇÃO</div><small id="platform-label">IPHONE / ANDROID</small></div>
+    <div class="card" id="resolution-card">
+      <p class="preset-caption" id="preset-caption">Selecione sua resolução ideal, combine os ajustes com seu estilo e deixe os pixels no ponto.</p>
+      <div class="edit">
+        <label for="w">LARGURA / PX<input id="w" type="text" inputmode="numeric" autocomplete="off" maxlength="4" value="2400" pattern="[0-9]*"></label>
+        <label for="h">ALTURA / PX<input id="h" type="text" inputmode="numeric" autocomplete="off" maxlength="4" value="1200" pattern="[0-9]*"></label>
+      </div>
+      <div id="pixel-error" class="field-warning" hidden>Digite números inteiros entre 320 e 5000.</div>
+      <div class="preset-heading"><span>ESCOLHA SEU NÍVEL</span><small>RESOLUÇÕES PRONTAS</small></div>
+      <div class="presets presets-compact" id="presets">
+        <button class="preset" data-preset="alta" type="button"><b>ALTA</b><strong class="preset-value">— × —</strong></button>
+        <button class="preset" data-preset="media" type="button"><b>MÉDIA</b><strong class="preset-value">— × —</strong></button>
+        <button class="preset" data-preset="baixa" type="button"><b>BAIXA</b><strong class="preset-value">— × —</strong></button>
+      </div>
+    </div>
+
+    <div class="heading"><div><em>02</em> ATIVAÇÃO DA RESOLUÇÃO</div></div>
+    <div class="activation resolution-activation">
+      <div class="activation-top"><small>CONFIGURAÇÃO PERSONALIZADA</small><span id="ready">AGUARDANDO</span></div>
+      <strong id="res-value">2400 × 1200</strong>
+      <p id="res-description">Escolha sua resolução e ajuste os pixels para entrar no rush com tudo no ponto.</p>
+      <div id="res-status" class="status" hidden></div>
+    </div>
+    <button class="primary hero-action" id="save-res">
+      <svg class="action-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-device-download"/></svg>
+      <span>INJETAR RESOLUÇÃO</span>
+    </button>
+  </section>
+
+  <section id="page-head" class="page" hidden>
+    <div class="head-hero">
+      <div class="head-hero-top">
+        <div>
+          <div class="eyebrow">MÓDULO EXCLUSIVO</div>
+          <h2 class="shine">HEADTRICKING <span>VIP</span></h2>
+          <p>O mesmo estilo do HeadTricking VIP, com opções premium bloqueadas até a ativação da key.</p>
+        </div>
+        <div class="head-badge">PREMIUM</div>
+      </div>
+    </div>
+
+    <div class="heading"><div><em>01</em> OPÇÕES HEAD VIP</div><small id="head-tag">🔒 BLOQUEADO</small></div>
+    <div id="head-options" class="head-grid"></div>
+
+    <div class="heading" id="head-key-heading"><div><em>02</em> ACESSO AO HEAD</div><small>KEY</small></div>
+    <div id="locked-area" class="unlock">
+      <div class="unlock-title"><b>ATIVE SUA KEY VIP</b><span>HEAD ACCESS</span></div>
+      <p>Ao validar sua key, o módulo HEAD é liberado e o botão de injeção aparece automaticamente.</p>
+      <form id="key-form">
+        <input id="key" required autocomplete="off" placeholder="COLE SUA KEY AQUI" aria-label="Key do HeadTricking VIP">
+        <button class="primary" id="key-submit" type="submit">✦ DESBLOQUEAR HEAD VIP</button>
+      </form>
+      <div class="status" id="key-status" hidden></div>
+      <p class="fineprint">A licença desta versão é conferida neste navegador.</p>
+    </div>
+
+    <div id="head-actions" class="head-actions" hidden>
+      <button class="primary hero-action" id="inject-head">
+        <svg class="action-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-power"/></svg>
+        <span>INJETAR HEADTRICKING VIP</span>
+      </button>
+      <button class="secondary hero-reset" id="clear-head">DESATIVAR TODAS OPÇÕES</button>
+    </div>
+    <div id="head-status" class="status head-warning" role="status" hidden></div>
+
+    <div class="heading" id="plans-heading"><div><em>03</em> ADQUIRIR LICENÇA</div><small>HEAD VIP</small></div>
+    <div class="plans" id="plans-wrapper">
+      <div class="plan" data-plan-card="season"><small>ACESSO TEMPORÁRIO</small><strong>SEASON</strong><b>R$ 22,90</b><button data-plan="season">ADQUIRIR</button></div>
+      <div class="plan permanent" data-plan-card="permanente"><span class="plan-accent">✦ VIP</span><small>ACESSO DEFINITIVO</small><strong>PERMANENTE</strong><b>R$ 32,90</b><button data-plan="permanente">ADQUIRIR</button></div>
+    </div>
+    <div class="status" id="plan-status" hidden></div>
+  </section>
+
+  <footer class="foot">
+    <a class="community-link" href="https://discord.gg/santxsensi" target="_blank" rel="noopener noreferrer" aria-label="Entrar na Comunidade VIP no Discord">
+      <svg class="community-crown" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-crown"/></svg>
+      <span>COMUNIDADE VIP</span>
+    </a>
+  </footer>
+</main>
+
+<div class="overlay" id="overlay" hidden>
+  <div class="loader">
+    <div class="ring" id="loader-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-aim"/></svg></div>
+    <h2 id="load-title">INJETANDO HEADTRICKING</h2>
+    <p id="load-description">Preparando suas opções HEAD...</p>
+    <div class="bar"><div id="fill" class="fill"></div></div>
+    <button class="primary" id="load-close" hidden>CONTINUAR</button>
+  </div>
+</div>
+<div class="head-injection-overlay" id="head-injection-overlay" role="dialog" aria-modal="true" aria-label="Injetando HeadTricking VIP" hidden>
+  <div class="head-injection-card" id="head-injection-card">
+    <div id="head-injection-progress">
+      <div class="injection-topline">
+        <span><i aria-hidden="true"></i>SISTEMA HEAD VIP</span>
+        <b id="injection-step">01 / 03</b>
+      </div>
+      <div class="injection-emblem"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-aim"/></svg></div>
+      <h2 class="injection-brand">HEADTRICKING <span>VIP</span></h2>
+      <div class="injection-stage" id="injection-stage">
+        <div class="injection-stage-top"><span>INJETANDO OPÇÕES HEAD</span><span class="moving-bars" aria-hidden="true"><i></i><i></i><i></i></span></div>
+        <div class="injection-stage-body">
+          <span class="injection-stage-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-aim" id="injection-feature-icon"/></svg></span>
+          <div><b id="injection-feature-name">Headtrack</b><p id="injection-feature-description">Configurando Headtrack.</p></div>
+        </div>
+      </div>
+      <div class="injection-progress-meta"><span>INJETANDO HEADTRICKING</span><b id="injection-percent">0%</b></div>
+      <div class="injection-track"><div id="injection-fill"></div></div>
+      <div class="injection-segments" id="injection-segments"></div>
+      <div class="injection-progress-bottom"><span id="injection-stage-count">Etapa 1 de 3</span><b>PROCESSANDO</b></div>
+      <div class="injection-footer">HEADTRICKING • SANTX SENSI</div>
+    </div>
+    <div id="head-injection-success" hidden>
+      <h2 class="success-brand">HEADTRICKING <span>VIP</span></h2>
+      <span class="success-check" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 12l5 5L20 6"/></svg></span>
+      <h3>HEADTRICKING INJETADO!</h3>
+      <p id="head-success-message">3 funções HEAD ativas! Agora é mira nível HACKER!</p>
+      <button class="primary" id="head-continue" type="button">CONTINUAR</button>
+    </div>
+  </div>
+</div>
+
+<div class="freeze-overlay" id="freeze-overlay" hidden aria-hidden="true"></div>
+
+<script>
+'use strict';
+const $ = id => document.getElementById(id);
+// Perfis de referência, não são resoluções universais nem instruções ao sistema operacional.
+const PRESETS={
+  // Largura e altura são valores independentes para compor perfis de referência.
+  // ALTA: maior largura, subida vertical relativamente mais contida.
+  // MÉDIA: largura intermediária e altura maior que ALTA.
+  // BAIXA: largura e altura reduzidas.
+  iphone:{alta:[2796,1050],media:[2556,1179],baixa:[2340,960]},
+  android:{alta:[2560,960],media:[2400,1080],baixa:[2160,900]}
+};
+const FEATURES=[
+  ['headtrack','i-aim','Headtrack','Mira na linha da cabeça. Puxou, encaixou: só capa!'],
+  ['antipinar','i-diamond','Anti Pinar','Puxada reta, sem passar da cabeça. Só capa no ponto!'],
+  ['calibrar','i-adjust','Calibrar Sensibilidade','Sensi calibrada para um arrasto firme e preciso.'],
+  ['estabilizar','i-target','Estabilizar Mira','Mira firme, sem tremedeira na hora da trocação.'],
+  ['desempenho','i-bolt','Melhorar Desempenho','Foco em gameplay lisa, com menos lag e travamentos.'],
+  ['otimizar','i-spark','Otimizar Sensibilidade','Sensi VIP nível hacker para buscar FULL VERMELHO!']
+];
+const LASTLINK={season:'',permanente:''}; // URLs HTTPS da Lastlink quando cadastradas.
+/* Versão local temporária: conferência de hashes no navegador, sem Cloudflare.
+   NÃO é antifraude: qualquer pessoa pode inspecionar/alterar JavaScript local.
+   A primeira ativação e o vencimento SEASON são locais e podem ser apagados.
+   Para venda com proteção real, use o Worker + D1 da V19. */
+const LICENSE_HASHES = Object.freeze({
+  'd33714933a199c56d784cd846266d6fd':'season',
+  'ee46637acce4c34382e1ceff4be3b80d':'season',
+  '5ece573df65d01a4330f7b42bab3a9d3':'season',
+  '7d11d1807a6d9e77b483b48a9c313feb':'season',
+  '30a0edf73bef67f9a7d95d086b172470':'season',
+  '66e26b42946172dd8d8015ebe41c42de':'season',
+  'a9297e72c92af440eb8b5f422f8e8046':'season',
+  '28e9a17a1e859714c21598cb88d25369':'season',
+  'a3dba8a93f058a6ffedaea387fc51794':'season',
+  '392a5c45ad1b771937256c14982786a9':'season',
+  '11db6b2033896d328678da533b218684':'season',
+  'f62f4dbccd0e66788347749edf840458':'season',
+  'a1238a2fafabc630fd91a036e4caa446':'season',
+  '9f7c6f6ada65badccc7150de433d04b4':'season',
+  '9abc14fe237772426e87e6e31dbae78d':'season',
+  '2029f1a8d369027bf8ac21198a484b5f':'season',
+  'a30a4e95499b850c8118c724c122704c':'season',
+  '8ce628f522f31b25a9cc6572a9e3e272':'season',
+  '5ade0254174622edae4a62544dd1e6a3':'season',
+  '5230bb5eb718a98fcf3e34e0df3044a9':'season',
+  '01dfc98369cbc8f73aa421a1a7e23c39':'permanente',
+  'a6b4a6f51c14e7fc2754012bfa731dff':'permanente',
+  'eba5fd09a0fb533b6a7cf6281008c401':'permanente',
+  'f061d7b819315486a40889580b94c45f':'permanente',
+  '31c50b5a55981205c5cf9abae72d48d4':'permanente',
+  '1f52a4a3a409a26af1e3d8e8f00f2cb6':'permanente',
+  '0c15159a107475ecb037bd5d257056f3':'permanente',
+  'bb9cb65897f73bfaa54a9264bc3ea824':'permanente',
+  '7916c3bca5d90165cf7db90cab596c3b':'permanente',
+  '752dba7c30dd6cd89773c2e0f20fc970':'permanente',
+  '35a8cef0747107a0136fe684b1bbf996':'permanente',
+  '148feeb455da0063774afca8e137a6b6':'permanente',
+  '8658ba9326799776b6dfe04e048c2d20':'permanente',
+  'd675c0c9120ece4e4566f6cbf565aa81':'permanente',
+  '9a7022a7786c4cad64657f2c66333e68':'permanente',
+  '885c2321cb0f03b4c70a044990050d27':'permanente',
+  '99884003c997afca9becaccdb7c8e27b':'permanente',
+  '5d381331e7f402d321967cd3056d6f4b':'permanente',
+  '5283f7caa851d4a08ab282071c777482':'permanente',
+  '5281916692a6ba8ee5047482b6e05f20':'permanente',
+});
+const LICENSE_DAYS=30;
+const LICENSE_REGISTRY='rvip-v20-local-registry';
+const LICENSE_CURRENT='rvip-v20-local-current';
+const STORE='rvip-v13-preferencias';
+const OPT_STORE='rvip-v13-head-selecionadas';
+let device='',preset='',unlocked=false,selected=new Set(),busy=false;
+let unlockTimer=null;
+let clearingHead=false;
+let headInjectRunning=false;
+let lastHeadFocus=null;
+const local={
+  get(k){try{return JSON.parse(localStorage.getItem(k)||'null')}catch{return null}},
+  set(k,v){try{localStorage.setItem(k,JSON.stringify(v));return true}catch{return false}}
+};
+function notice(id,msg){$(id).hidden=false;$(id).textContent=msg}
+function setTabs(tab){
+  document.body.classList.toggle('head-mode',tab==='head');
+  for(const name of ['res','head']){
+    $('page-'+name).hidden=name!==tab;
+    const btn=document.querySelector('[data-tab="'+name+'"]');
+    btn.classList.toggle('active',name===tab);
+    btn.setAttribute('aria-selected',String(name===tab));
+    if(name===tab){const page=$('page-'+name);page.style.animation='none';void page.offsetWidth;page.style.animation=''}
+  }
+}
+document.querySelectorAll('[data-tab]').forEach(btn=>btn.onclick=()=>setTabs(btn.dataset.tab));
+
+function dimensions(){
+  const a=$('w').value.trim(),b=$('h').value.trim();
+  if(!/^[0-9]{3,4}$/.test(a)||!/^[0-9]{3,4}$/.test(b))return null;
+  const w=Number(a),h=Number(b);
+  return Number.isInteger(w)&&Number.isInteger(h)&&w>=320&&h>=320&&w<=5000&&h<=5000?[w,h]:null;
+}
+function persist(){
+  const d=dimensions();
+  if(!d)return false;
+  return local.set(STORE,{device,width:d[0],height:d[1],preset});
+}
+function updatePresetLabels(){
+  const list=PRESETS[device];
+  $('platform-label').textContent=device?device.toUpperCase():'IPHONE / ANDROID';
+  document.querySelectorAll('[data-preset]').forEach(b=>{
+    const dims=list?.[b.dataset.preset];
+    b.querySelector('.preset-value').textContent=dims?dims.join(' × '):'— × —';
+    b.disabled=!list;
+  });
+  $('preset-caption').textContent=device
+    ?'Selecione sua resolução ideal e personalize os pixels para combinar com seu jeito de puxar a mira.'
+    :'Selecione sua resolução ideal: escolha IPHONE ou ANDROID para ver os perfis e ajustar os pixels do seu estilo.';
+}
+function renderRes(){
+  updatePresetLabels();
+  const d=dimensions(),valid=Boolean(d),ready=valid&&Boolean(device);
+  $('res-value').textContent=valid?d.join(' × '):'— × —';
+  $('ready').textContent=ready?'PRONTO':'AGUARDANDO';
+  $('save-res').disabled=!ready;
+  $('device-note').textContent=device?device.toUpperCase()+' selecionado • escolha salva':'Escolha seu dispositivo para continuar.';
+  $('res-description').textContent=ready?'Resolução na medida pra deixar o touch rápido e a mira pronta pro full capa.':'Escolha sua resolução e ajuste os pixels para entrar no rush com tudo no ponto.';
+  $('pixel-error').hidden=valid;
+  for(const input of [$('w'),$('h')])input.classList.toggle('invalid',input.value.length>0&&!/^[0-9]{3,4}$/.test(input.value.trim()));
+  document.querySelectorAll('[data-device]').forEach(b=>{b.classList.toggle('selected',b.dataset.device===device);b.setAttribute('aria-pressed',String(b.dataset.device===device))});
+  document.querySelectorAll('[data-preset]').forEach(b=>{b.classList.toggle('selected',b.dataset.preset===preset);b.setAttribute('aria-pressed',String(b.dataset.preset===preset))});
+}
+function animateDeviceChoice(){
+  // Reinicia as animações mesmo quando o cliente alterna rapidamente.
+  const deviceCard=$('device-card'), resolutionCard=$('resolution-card');
+  for(const el of [deviceCard,resolutionCard]){
+    el.classList.remove('device-changing');
+    void el.offsetWidth;
+    el.classList.add('device-changing');
+  }
+  document.querySelectorAll('[data-device]').forEach(btn=>{
+    btn.classList.remove('device-pulse');
+    if(btn.dataset.device===device){void btn.offsetWidth;btn.classList.add('device-pulse')}
+  });
+  for(const [index,btn] of [...document.querySelectorAll('[data-preset]')].entries()){
+    btn.style.setProperty('--order',index);
+    btn.classList.remove('preset-swapping');
+    void btn.offsetWidth;
+    btn.classList.add('preset-swapping');
+  }
+}
+document.querySelectorAll('[data-device]').forEach(b=>b.onclick=()=>{
+  const next=b.dataset.device;
+  if(device!==next){
+    device=next; preset='';
+    const suggested=PRESETS[next].media;
+    $('w').value=suggested[0];$('h').value=suggested[1];
+  }
+  persist();$('res-status').hidden=true;renderRes();
+  animateDeviceChoice();
+});
+document.querySelectorAll('[data-preset]').forEach(b=>b.onclick=()=>{
+  const key=b.dataset.preset; preset=key;
+  if(!PRESETS[device])return;
+  $('w').value=PRESETS[device][key][0];$('h').value=PRESETS[device][key][1];
+  persist();$('res-status').hidden=true;renderRes();
+});
+for(const id of ['w','h']){
+  $(id).addEventListener('input',()=>{
+    // Mantém o cursor e o que o cliente digitou. Não troca nem recalcula o outro campo.
+    preset='';
+    if(dimensions())persist();
+    $('res-status').hidden=true;
+    renderRes();
+  });
+  $(id).addEventListener('blur',()=>renderRes());
+}
+$('save-res').onclick=()=>{
+  const d=dimensions();
+  if(!device||!d||busy)return;
+  const button=$('save-res');
+  button.disabled=true;
+  animateOperation('resolution',900,()=>{
+    const ok=local.set('rvip-v13-configuracao-ativa',{device,width:d[0],height:d[1],activatedAt:Date.now()});
+    if(!ok){notice('res-status','Não foi possível salvar esta configuração.');button.disabled=false;return}
+    // Travada visual leve da interface: apenas simula uma pausa do painel.
+    playFreezeEffect(()=>{
+      notice('res-status','✓ Resolução preparada para seu dispositivo! Agora é só entrar no jogo e amassar dando Full Red!');
+      button.disabled=false;
+    });
+  });
+};
+
+
+function playFreezeEffect(onComplete){
+  const reduced=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const overlay=$('freeze-overlay');
+  const total=reduced?220:950+Math.floor(Math.random()*451);
+  document.body.classList.add('is-freezing');
+  overlay.hidden=false;
+  overlay.classList.add('flash');
+  setTimeout(()=>overlay.classList.remove('flash'),90);
+  setTimeout(()=>overlay.classList.add('active'),110);
+  setTimeout(()=>{
+    overlay.classList.remove('active');
+    overlay.hidden=true;
+    document.body.classList.remove('is-freezing');
+    onComplete();
+  }, total);
+}
+// A animação é apenas uma pausa visual da interface; não modifica a resolução do aparelho.
+function animateOperation(mode,duration,done){
+  const overlay=$('overlay');
+  overlay.hidden=false;
+  $('loader-icon').innerHTML='<svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-device-download"/></svg>';
+  $('load-title').textContent='INJETANDO RESOLUÇÃO';
+  $('load-description').textContent='Preparando e registrando seu ajuste...';
+  $('load-close').hidden=true;
+  $('fill').style.width='0%';
+  let start=null;
+  function frame(now){
+    if(start===null)start=now;
+    if(overlay.hidden)return;
+    const f=Math.min(1,(now-start)/duration);
+    $('fill').style.width=Math.round(f*100)+'%';
+    if(f<1)requestAnimationFrame(frame);
+    else{
+      overlay.hidden=true;
+      done();
+    }
+  }
+  requestAnimationFrame(frame);
+}
+
+// Conferência temporária somente neste navegador.
+async function fingerprint(raw){
+  if(!crypto?.subtle){
+    throw Error('Abra o aplicativo por HTTPS para verificar a key.');
+  }
+  const bytes=new TextEncoder().encode(raw.trim().toUpperCase());
+  const digest=await crypto.subtle.digest('SHA-256',bytes);
+  return [...new Uint8Array(digest)].map(n=>n.toString(16).padStart(2,'0')).join('').slice(0,32);
+}
+function currentLicense(){
+  const current=local.get(LICENSE_CURRENT);
+  if(!current||typeof current!=='object')return null;
+  const plan=LICENSE_HASHES[current.id];
+  if(!plan||current.plan!==plan)return null;
+  const registry=local.get(LICENSE_REGISTRY)||{};
+  const first=registry[current.id];
+  if(!Number.isFinite(first)||first<=0)return null;
+  if(plan==='season'&&Date.now()>=first+LICENSE_DAYS*86400000)return null;
+  return {plan,first,id:current.id};
+}
+async function activateLocal(raw){
+  const id=await fingerprint(raw);
+  const plan=LICENSE_HASHES[id];
+  if(!plan)throw Error('Key inválida. Confira o código recebido.');
+  const registry=local.get(LICENSE_REGISTRY)||{};
+  if(!Number.isFinite(registry[id])){
+    registry[id]=Date.now();
+    if(!local.set(LICENSE_REGISTRY,registry))throw Error('Ative o armazenamento do navegador para salvar a licença.');
+  }
+  if(plan==='season'&&Date.now()>=registry[id]+LICENSE_DAYS*86400000){
+    throw Error('Esta key SEASON completou 30 dias neste navegador.');
+  }
+  if(!local.set(LICENSE_CURRENT,{id,plan}))throw Error('Não foi possível salvar a ativação.');
+  return {ok:true,plan};
+}
+function renderFeatures(){
+  const list=$('head-options');
+  const fragment=document.createDocumentFragment();
+  for(const [id,icon,name,desc] of FEATURES){
+    const card=document.createElement('button');
+    card.type='button';
+    card.dataset.featureId=id;
+    const isOn=unlocked&&selected.has(id);
+    card.className='head-card'+(unlocked?' unlocked':' locked')+(isOn?' selected':'');
+    card.setAttribute('aria-pressed',String(isOn));
+    card.setAttribute('aria-label',name+(unlocked?'':' — requer key VIP'));
+    const symbol=document.createElement('span');symbol.className='head-icon';
+    const svg=document.createElementNS('http://www.w3.org/2000/svg','svg');
+    svg.setAttribute('viewBox','0 0 24 24');svg.setAttribute('aria-hidden','true');
+    const use=document.createElementNS('http://www.w3.org/2000/svg','use');
+    use.setAttribute('href','#'+icon);svg.append(use);symbol.append(svg);
+    const copy=document.createElement('span');copy.className='head-copy';
+    const heading=document.createElement('h3');
+    const title=document.createElement('span');title.textContent=name;
+    const pill=document.createElement('span');pill.className='vip-pill';pill.textContent='VIP';
+    heading.append(title,pill);
+    const description=document.createElement('p');description.textContent=desc;
+    copy.append(heading,description);
+    const wrap=document.createElement('span');wrap.className='switch-wrap';
+    const toggle=document.createElement('span');toggle.className='vip-toggle';wrap.append(toggle);
+    card.append(symbol,copy,wrap);
+    card.onclick=()=>{
+      if(!unlocked){$('locked-area').scrollIntoView({behavior:'smooth',block:'center'});return}
+      if(clearingHead||headInjectRunning)return;
+      const isSelected=!selected.has(id);
+      if(isSelected)selected.add(id);else selected.delete(id);
+      card.classList.toggle('selected',isSelected);
+      card.setAttribute('aria-pressed',String(isSelected));
+      card.classList.remove('switch-pop');void card.offsetWidth;card.classList.add('switch-pop');
+      local.set(OPT_STORE,[...selected]);
+      if(selected.size>=3||$('head-status').textContent){$('head-status').hidden=true;$('head-status').textContent='';}
+    };
+    fragment.append(card);
+  }
+  list.replaceChildren(fragment);
+  $('head-tag').textContent=unlocked?'VIP LIBERADO':'🔒 BLOQUEADO';
+}
+function setUnlocked(active,withAnimation=false){
+  const prev=unlocked;
+  unlocked=active===true;
+  if(!unlocked){selected.clear()}
+  else if(!prev){
+    const stored=local.get(OPT_STORE);
+    selected=new Set(Array.isArray(stored)?stored.filter(id=>FEATURES.some(x=>x[0]===id)):[]);
+  }
+  $('locked-area').hidden=unlocked;
+  $('head-key-heading').hidden=unlocked;
+  $('head-status').hidden=true;
+  $('head-actions').hidden=!unlocked;
+  $('plans-heading').hidden=unlocked;
+  $('plans-wrapper').hidden=unlocked;
+  $('plan-status').hidden=unlocked;
+  if(unlocked&&(!prev||withAnimation)){
+    const box=$('head-actions');box.classList.remove('unlock-flash');void box.offsetWidth;box.classList.add('unlock-flash');
+  }
+  renderFeatures();
+}
+async function checkLicense(){
+  const active=Boolean(currentLicense());
+  setUnlocked(active);
+  return active;
+}
+function unlockAnimation(){
+  if(unlockTimer){clearTimeout(unlockTimer);unlockTimer=null}
+  const overlay=$('overlay');
+  overlay.hidden=false;
+  $('loader-icon').innerHTML='<svg viewBox="0 0 24 24" width="44" height="44" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="10" width="14" height="11" rx="2"/><path d="M8 10V6a4 4 0 0 1 7.5-2"/><path d="M12 14v3"/></svg>'; 
+  $('loader-icon').classList.add('unlock-ring');
+  $('load-title').textContent='DESBLOQUEANDO HEAD VIP';
+  $('load-description').textContent='Licença validada. Liberando opções exclusivas...';
+  $('fill').style.width='0%';
+  $('load-close').hidden=true;
+  const start=performance.now();
+  function frame(t){
+    if(overlay.hidden)return;
+    const f=Math.min(1,(t-start)/1450);
+    $('fill').style.width=Math.round(f*100)+'%';
+    if(f<1)requestAnimationFrame(frame);
+    else{
+      $('load-title').textContent='HEAD VIP LIBERADO';
+      $('load-description').textContent='Seu acesso premium está pronto.';
+      unlockTimer=setTimeout(()=>{
+        overlay.hidden=true;
+        $('loader-icon').classList.remove('unlock-ring');
+        setUnlocked(true,true);
+        $('head-actions').scrollIntoView({behavior:'smooth',block:'center'});
+      },500);
+    }
+  }
+  requestAnimationFrame(frame);
+}
+$('key-form').onsubmit=async e=>{
+  e.preventDefault();if(busy)return;
+  const key=$('key').value.trim().toUpperCase();if(!key)return;
+  busy=true;$('key-submit').disabled=true;
+  notice('key-status','Conferindo key neste aparelho...');
+  try{
+    await activateLocal(key);
+    $('key').value='';
+    unlockAnimation();
+  }catch(err){notice('key-status',err.message||'Não foi possível verificar esta key.')}finally{busy=false;$('key-submit').disabled=false}
+};
+/* V21 — restaura a animação do painel HeadTricking original */
+function setHeadWarning(message){
+  const el=$('head-status');el.hidden=false;el.textContent=message;
+  el.classList.remove('head-warning');void el.offsetWidth;el.classList.add('head-warning');
+}
+$('clear-head').onclick=async()=>{
+  if(clearingHead||headInjectRunning||!unlocked)return;
+  const cards=[...$('head-options').querySelectorAll('.head-card.selected')];
+  if(!cards.length){setHeadWarning('Todas as opções HEAD já estão desativadas.');return}
+  clearingHead=true;
+  $('clear-head').disabled=true;
+  for(const card of cards){
+    const id=card.dataset.featureId;
+    if(id)selected.delete(id);
+    card.classList.remove('selected','switch-pop');
+    card.setAttribute('aria-pressed','false');
+    void card.offsetWidth;
+    card.classList.add('clearing');
+    await new Promise(r=>setTimeout(r,125));
+  }
+  await new Promise(r=>setTimeout(r,265));
+  for(const card of cards)card.classList.remove('clearing');
+  selected.clear();local.set(OPT_STORE,[]);
+  $('clear-head').disabled=false;
+  clearingHead=false;
+  setHeadWarning('Todas as opções HEAD foram desativadas.');
+};
+const headStageDescriptions={
+  headtrack:'Configurando Headtrack.',
+  antipinar:'Ajustando Anti Pinar.',
+  calibrar:'Calibrando sensibilidade.',
+  estabilizar:'Estabilizando a mira.',
+  desempenho:'Configurando desempenho.',
+  otimizar:'Otimizando sensibilidade.'
+};
+function updateHeadStage(index,stages){
+  const f=stages[index];
+  if(!f)return;
+  const [id,icon,name]=f;
+  $('injection-step').textContent=`${String(index+1).padStart(2,'0')} / ${String(stages.length).padStart(2,'0')}`;
+  $('injection-feature-name').textContent=name;
+  $('injection-feature-description').textContent=headStageDescriptions[id]||('Configurando '+name+'.');
+  $('injection-feature-icon').setAttribute('href','#'+icon);
+  $('injection-stage-count').textContent=`Etapa ${index+1} de ${stages.length}`;
+  const box=$('injection-stage');box.classList.remove('changing');void box.offsetWidth;box.classList.add('changing');
+}
+function updateHeadProgress(p,stages){
+  const pct=Math.max(0,Math.min(100,Math.floor(p*100)));
+  $('injection-percent').textContent=pct+'%';
+  $('injection-fill').style.width=pct+'%';
+  const index=Math.min(stages.length-1,Math.floor(p*stages.length));
+  if(index!==headProgressStage){headProgressStage=index;updateHeadStage(index,stages)}
+  [...$('injection-segments').children].forEach((el,i)=>{
+    const f=Math.min(1,Math.max(0,p*stages.length-i));
+    el.firstElementChild.style.width=Math.round(f*100)+'%';
+  });
+}
+let headProgressStage=-1;
+$('inject-head').onclick=async()=>{
+  if(headInjectRunning||clearingHead||!unlocked)return;
+  if(selected.size<3){
+    const missing=3-selected.size;
+    setHeadWarning(`⚠ Ative pelo menos 3 opções HEAD. Faltam ${missing} opção(ões).`);
+    $('head-status').scrollIntoView({block:'nearest',behavior:'smooth'});
+    return;
+  }
+  const valid=await checkLicense();
+  if(!valid){setHeadWarning('Sua key está expirada ou ausente. Ative uma key válida.');return}
+  headInjectRunning=true;
+  const stages=FEATURES.filter(feature=>selected.has(feature[0]));
+  lastHeadFocus=document.activeElement;
+  $('inject-head').disabled=true;
+  $('clear-head').disabled=true;
+  const overlay=$('head-injection-overlay');
+  $('head-injection-success').hidden=true;
+  $('head-injection-progress').hidden=false;
+  $('injection-segments').replaceChildren();
+  for(let i=0;i<stages.length;i++){
+    const bar=document.createElement('span');bar.className='injection-segment';
+    bar.append(document.createElement('i'));
+    $('injection-segments').append(bar);
+  }
+  headProgressStage=-1;updateHeadProgress(0,stages);
+  overlay.hidden=false;document.body.classList.add('head-injection-running');
+  const duration=4600;
+  const start=performance.now();
+  const animate=now=>{
+    if(overlay.hidden)return;
+    const fraction=Math.max(0,Math.min(1,(now-start)/duration));
+    updateHeadProgress(fraction,stages);
+    if(fraction<1){requestAnimationFrame(animate);return}
+    local.set(OPT_STORE,[...selected]);
+    $('head-success-message').textContent=stages.length+' funções HEAD ativas! Agora é mira nível HACKER!';
+    $('head-injection-progress').hidden=true;
+    $('head-injection-success').hidden=false;
+    headInjectRunning=false;
+  };
+  requestAnimationFrame(animate);
+};
+$('head-continue').onclick=()=>{
+  if(headInjectRunning)return;
+  $('head-injection-overlay').hidden=true;
+  document.body.classList.remove('head-injection-running');
+  $('inject-head').disabled=false;
+  $('clear-head').disabled=false;
+  $('head-status').hidden=true;
+  if(lastHeadFocus&&typeof lastHeadFocus.focus==='function')lastHeadFocus.focus();
+};
+// Somente o clique do cliente destaca um plano.
+// O Permanente mantém um pequeno detalhe VIP, sem seleção automática.
+function selectPlan(which){
+  document.querySelectorAll('[data-plan-card]').forEach(card=>{
+    const active=card.dataset.planCard===which;
+    card.classList.toggle('is-selected',active);
+    card.setAttribute('aria-selected',String(active));
+  });
+}
+document.querySelectorAll('[data-plan-card]').forEach(card=>{
+  card.tabIndex=0;
+  card.addEventListener('click',()=>selectPlan(card.dataset.planCard));
+  card.addEventListener('keydown',e=>{
+    if(e.target===card&&(e.key==='Enter'||e.key===' ')){
+      e.preventDefault();selectPlan(card.dataset.planCard);
+    }
+  });
+});
+document.querySelectorAll('[data-plan]').forEach(btn=>btn.onclick=()=>{
+  selectPlan(btn.dataset.plan);
+  const link=LASTLINK[btn.dataset.plan];
+  if(!link)return notice('plan-status','Adicione o link da Lastlink do plano '+btn.dataset.plan.toUpperCase()+'.');
+  try{
+    const dest=new URL(link);if(dest.protocol!=='https:')throw Error();
+    window.open(dest.href,'_blank','noopener,noreferrer');
+  }catch{notice('plan-status','Link de compra inválido. Confira a URL da Lastlink.');}
+});
+const old=local.get(STORE);
+if(old&&typeof old==='object'){
+  if(['iphone','android'].includes(old.device))device=old.device;
+  if(Number.isInteger(old.width)&&old.width>=320&&old.width<=5000)$('w').value=String(old.width);
+  if(Number.isInteger(old.height)&&old.height>=320&&old.height<=5000)$('h').value=String(old.height);
+  if(device&&typeof old.preset==='string'&&Object.hasOwn(PRESETS[device],old.preset))preset=old.preset;
+}
+function setConnectionState(){
+  const online=navigator.onLine!==false;
+  $('online-text').textContent=online?'ONLINE':'OFFLINE';
+  $('online-pill').classList.toggle('is-offline',!online);
+}
+window.addEventListener('online',setConnectionState);
+window.addEventListener('offline',setConnectionState);
+setConnectionState();
+renderRes();setUnlocked(false);checkLicense();
+setInterval(()=>{if(!document.hidden)checkLicense()},30000);
+document.addEventListener('visibilitychange',()=>{if(!document.hidden)checkLicense()});
+</script>
+</body>
+</html>

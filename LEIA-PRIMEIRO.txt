@@ -1,0 +1,18 @@
+RESOLUTION VIP V21 — EDIÇÃO PROVISÓRIA COM KEYS LOCAIS
+
+1. Publique o index.html, manifest.webmanifest e a pasta icons JUNTOS na raiz do mesmo domínio HTTPS (ex.: GitHub Pages).
+2. No iPhone, abra a URL publicada no Safari > Compartilhar > Adicionar à Tela de Início. O ícone será o computador vermelho com mouse dourado enviado por você.
+3. Se já instalou o app antes, remova o atalho antigo e crie novamente para atualizar o ícone armazenado pelo iOS.
+4. A categoria HEAD aceita as mesmas 40 keys V20 já geradas anteriormente. O arquivo PRIVADO JSON não deve ser publicado.
+5. A key SEASON dura 30 dias no armazenamento DESTE navegador; PERMANENTE não tem prazo local. Sem servidor, qualquer pessoa pode copiar a mesma key em outro dispositivo, limpar armazenamento, alterar relógio, ou burlar o bloqueio. Não é antifraude.
+6. O efeito de injeção de HEAD/RESOLUÇÃO é uma simulação visual da interface, não modifica o Free Fire nem configurações do sistema operacional.
+7. Os botões Lastlink necessitam que você configure as URLs em index.html (const LASTLINK).
+8. Teste uma key SEASON e uma PERMANENTE, desligue/reabra, selecione 1 e depois 3 funções, teste a sequência de carregamento e a desativação animada.
+
+Arquivos:
+index.html : aplicativo completo
+manifest.webmanifest : instalação PWA
+icons/apple-touch-icon.png : ícone iPhone
+icons/icon-192.png e icons/icon-512.png : ícones Android
+icons/favicon-32.png : ícone da aba do navegador
+icons/imagem-original.jpeg : imagem de referência original
